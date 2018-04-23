@@ -1,0 +1,23 @@
+" set guifont=courier_new:h12
+if has('gui_running')
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+    set nospell
+    autocmd GUIEnter * simalt ~x
+    set go=c
+endif
+
+let g:EasyMotion_do_mapping = 0
+nmap s <Plug>(easymotion-overwin-f)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+set nofoldenable
+set langmenu=en_US
+let $LANG = 'en_US'
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
