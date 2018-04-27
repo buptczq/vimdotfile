@@ -76,8 +76,7 @@
     " General {
         if count(g:spf13_bundle_groups, 'general')
             Plug 'scrooloose/nerdtree'
-            Plug 'altercation/vim-colors-solarized'
-            Plug 'spf13/vim-colors'
+            Plug 'liuchengxu/space-vim-dark'
             Plug 'tpope/vim-surround'
             Plug 'tpope/vim-repeat'
             Plug 'rhysd/conflict-marker.vim'
@@ -113,7 +112,6 @@
             Plug 'bling/vim-bufferline'
             Plug 'easymotion/vim-easymotion'
             Plug 'jistr/vim-nerdtree-tabs'
-            Plug 'flazz/vim-colorschemes'
             Plug 'mbbill/undotree'
             Plug 'nathanaelkane/vim-indent-guides'
             if !exists('g:spf13_no_views')
