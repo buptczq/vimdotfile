@@ -21,3 +21,5 @@ map <Leader>k <Plug>(easymotion-k)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
+
+set nolist
