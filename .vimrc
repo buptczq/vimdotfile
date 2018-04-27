@@ -658,8 +658,8 @@
 
     " LeaderF {
         if isdirectory(expand("$VIMBUNDLE_ROOT/LeaderF/"))
-            let g:Lf_ShortcutF = '<c-p>'
-            nnoremap <Leader>f :LeaderfMru<cr>
+            "let g:Lf_ShortcutF = '<c-p>'
+            nnoremap <Leader>fm :LeaderfMru<cr>
             "let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
             "let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
