@@ -20,6 +20,7 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
+nnoremap <silent> <Leader>p :YRShow<CR>
 
 
 set nolist
