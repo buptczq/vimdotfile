@@ -429,6 +429,7 @@
     nnoremap <silent> <Leader>fs :w<CR>
     nnoremap <silent> <Leader>fS :wa<CR>
     nnoremap <silent> <Leader>w :w<CR>
+    nnoremap <silent> <Leader>q :wq<CR>
     " Toggle
     nnoremap <silent> <Leader>ts :setlocal spell!<CR>
     nnoremap <silent> <Leader>tn :setlocal nonumber!<CR>
