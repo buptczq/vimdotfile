@@ -1,0 +1,40 @@
+let mapleader = ","
+set surround
+set nu
+set hlsearch
+set incsearch
+set showmode
+"set clipboard=unnamed
+set clipboard=unnamedplus,unnamed
+set ignorecase smartcase
+set history=10000
+
+"nnoremap / :action Find<CR>
+"nnoremap n :action FindNext<CR>
+"nnoremap N :action FindPrevious<CR>
+"nnoremap U :action $Redo<CR>
+
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
+nnoremap <C-P> :action SearchEverywhere<CR>
+
+nnoremap <Leader>fu :action FindInPath<CR>
+nnoremap <Leader>e :action ActivateProjectToolWindow<CR>
+nnoremap <Leader>r :action Run<CR>
+nnoremap <Leader>u :action LocalHistory.ShowHistory<CR>
+vnoremap <Leader>u :<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action LocalHistory.ShowSelectionHistory<CR>
+"nmap s :action AceAction<CR>
+nmap s :action KJumpAction<CR>
+map <Leader>j :action AceLineAction<CR>
+map <Leader>k :action AceLineAction<CR>
+map <Leader>i :action Generate<CR>
+
+" comment
+nnoremap <Leader>c<Space> :action CommentByLineComment<CR>
+vnoremap <Leader>c<Space> :<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action CommentByLineComment<cr>
+
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
