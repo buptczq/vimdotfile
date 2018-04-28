@@ -254,7 +254,7 @@
     " character) add the following to your .vimrc.before.local file:
     "   let g:spf13_leader='\'
     if !exists('g:spf13_leader')
-        let mapleader = ','
+        let mapleader = ' '
     else
         let mapleader=g:spf13_leader
     endif
@@ -378,17 +378,6 @@
     "nmap <leader>f8 :set foldlevel=8<CR>
     "nmap <leader>f9 :set foldlevel=9<CR>
 
-    " Most prefer to toggle search highlighting rather than clear the current
-    " search results. To clear search highlighting rather than toggle it on
-    " and off, add the following to your .vimrc.before.local file:
-    "   let g:spf13_clear_search_highlight = 1
-    if exists('g:spf13_clear_search_highlight')
-        nmap <silent> <leader>/ :nohlsearch<CR>
-    else
-        nmap <silent> <leader>/ :set invhlsearch<CR>
-    endif
-
-
     " Find merge conflict markers
     map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
@@ -417,7 +406,8 @@
     "map <leader>et :tabe %%
 
     " Adjust viewports to the same size
-    map <Leader>= <C-w>=
+    map <Leader>w= <C-w>=
+    map <Leader>wd <C-w>c
 
     " Map <Leader>ff to display all lines with keyword under cursor
     " and ask which one to jump to
@@ -429,6 +419,22 @@
 
     " Easier formatting
     "nnoremap <silent> <leader>q gwip
+    
+    " Buffer
+    nnoremap <silent> <Leader>bn :bn<CR>
+    nnoremap <silent> <Leader>bp :bp<CR>
+    nnoremap <silent> <Leader>bd :bdelete<CR>
+    nnoremap <Leader><Tab> :e#<CR>
+    " File
+    nnoremap <silent> <Leader>fs :w<CR>
+    nnoremap <silent> <Leader>fS :wa<CR>
+    nnoremap <silent> <Leader>w :w<CR>
+    " Toggle
+    nnoremap <silent> <Leader>ts :setlocal spell!<CR>
+    nnoremap <silent> <Leader>tn :setlocal nonumber!<CR>
+    nnoremap <silent> <Leader>tl :setlocal nolist!<CR>
+    nnoremap <silent> <Leader>th :set hlsearch!<CR>
+    nnoremap <silent> <Leader>tw :setlocal wrap! breakindent!<CR>
 
 " }
 
@@ -476,6 +482,41 @@
                 autocmd FileType textile call textobj#quote#init()
                 autocmd FileType text call textobj#quote#init({'educate': 0})
             augroup END
+        endif
+    " }
+
+    " nerdcommenter {
+        if isdirectory(expand("$VIMBUNDLE_ROOT/nerdcommenter/"))
+            " Add extra space around delimiters when commenting, remove them when
+            " uncommenting
+            let g:NERDSpaceDelims = 1
+            let g:NERDCreateDefaultMappings = 0
+
+            " Always remove the extra spaces when uncommenting regardless of whether
+            " NERDSpaceDelims is set
+            let g:NERDRemoveExtraSpaces = 1
+
+            " Use compact syntax for prettified multi-line comments
+            let g:NERDCompactSexyComs = 1
+
+            " Align line-wise comment delimiters flush left instead of following code
+            " indentation
+            let g:NERDDefaultAlign = 'left'
+
+            " Allow commenting and inverting empty lines (useful when commenting a
+            " region)
+            let g:NERDCommentEmptyLines = 1
+
+            " Enable trimming of trailing whitespace when uncommenting
+            let g:NERDTrimTrailingWhitespace = 1
+
+            " Always use alternative delimiter
+            let g:NERD_c_alt_style = 1
+            let g:NERDCustomDelimiters = {'c': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' }}
+
+            map <Leader>; <Plug>NERDCommenterToggle
+            map <Leader>cl <Plug>NERDCommenterComment
+            map <Leader>cL <Plug>NERDCommenterInvert
         endif
     " }
 
@@ -550,9 +591,9 @@
 
     " NerdTree {
         if isdirectory(expand("$VIMBUNDLE_ROOT/nerdtree"))
-            map <C-e> <plug>NERDTreeTabsToggle<CR>
-            map <leader>e :NERDTreeFind<CR>
-            nmap <leader>nt :NERDTreeFind<CR>
+            map <leader>ft <plug>NERDTreeTabsToggle<CR>
+            map <leader>fT :NERDTreeFind<CR>
+            "nmap <leader>nt :NERDTreeFind<CR>
 
             let NERDTreeShowBookmarks=1
             let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
@@ -658,8 +699,9 @@
 
     " LeaderF {
         if isdirectory(expand("$VIMBUNDLE_ROOT/LeaderF/"))
-            "let g:Lf_ShortcutF = '<c-p>'
-            nnoremap <Leader>fm :LeaderfMru<cr>
+            let g:Lf_ShortcutF = '<Leader>ff'
+            let g:Lf_ShortcutB = '<Leader>fb'
+            nnoremap <Leader>fh :LeaderfMru<cr>
             "let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
             "let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
