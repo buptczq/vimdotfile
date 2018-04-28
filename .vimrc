@@ -233,7 +233,7 @@
     " .vimrc.before.local file:
     "   let g:spf13_keep_trailing_whitespace = 1
     autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
-    "autocmd FileType go autocmd BufWritePre <buffer> Fmt
+    autocmd FileType go autocmd BufWritePre <buffer> Fmt
     autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
     autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
     " preceding line best in a plugin but here for now.
@@ -428,7 +428,7 @@
     map zh zH
 
     " Easier formatting
-    nnoremap <silent> <leader>q gwip
+    "nnoremap <silent> <leader>q gwip
 
 " }
 
@@ -444,15 +444,15 @@
             let g:go_fmt_command = "goimports"
             let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
             let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-            au FileType go nmap <Leader>s <Plug>(go-implements)
-            au FileType go nmap <Leader>i <Plug>(go-info)
+            au FileType go nmap <Leader>i <Plug>(go-implements)
+            "au FileType go nmap <Leader>i <Plug>(go-info)
             " au FileType go nmap <Leader>e <Plug>(go-rename)
             au FileType go nmap <leader>r <Plug>(go-run)
-            au FileType go nmap <leader>b <Plug>(go-build)
-            au FileType go nmap <leader>t <Plug>(go-test)
-            au FileType go nmap <Leader>gd <Plug>(go-doc)
-            au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-            au FileType go nmap <leader>co <Plug>(go-coverage)
+            "au FileType go nmap <leader>b <Plug>(go-build)
+            "au FileType go nmap <leader>t <Plug>(go-test)
+            "au FileType go nmap <Leader>gd <Plug>(go-doc)
+            "au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+            "au FileType go nmap <leader>co <Plug>(go-coverage)
         endif
         " }
 
