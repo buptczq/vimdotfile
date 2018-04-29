@@ -1025,6 +1025,12 @@
             inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
             inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
             let g:completor_completion_delay = 10
+            imap <C-k> <Plug>(neosnippet_expand_or_jump)
+            smap <C-k> <Plug>(neosnippet_expand_or_jump)
+            let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*)$'
+            let g:completor_php_omni_trigger = '[^. \t]->\h\w*\|\h\w*::'
+            let g:completor_perl_omni_trigger = '\h\w*->\h\w*\|\h\w*::'
+            let g:completor_ruby_omni_trigger = '[^. *\t]\.\h\w*\|\h\w*::'
     " }
     "
     " Normal Vim omni-completion {
