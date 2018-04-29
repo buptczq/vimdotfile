@@ -175,6 +175,12 @@
             Plug 'roxma/nvim-yarp'
             Plug 'roxma/vim-hug-neovim-rpc'
             let g:deoplete#enable_at_startup = 1
+        elseif count(g:spf13_bundle_groups, 'completor')
+            Plug 'maralla/completor.vim'
+            Plug 'maralla/completor-neosnippet'
+            Plug 'Shougo/neosnippet'
+            Plug 'Shougo/neosnippet-snippets'
+            Plug 'honza/vim-snippets'
         endif
     " }
 
