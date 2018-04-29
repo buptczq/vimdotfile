@@ -1,17 +1,9 @@
 " Modeline and Notes {
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
 "
-"   Licensed under the Apache License, Version 2.0 (the "License");
-"   you may not use this file except in compliance with the License.
-"   You may obtain a copy of the License at
+" BUPTCZQ's VIM dotfile
+" Create at 2018.4
 "
-"       http://www.apache.org/licenses/LICENSE-2.0
-"
-"   Unless required by applicable law or agreed to in writing, software
-"   distributed under the License is distributed on an "AS IS" BASIS,
-"   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-"   See the License for the specific language governing permissions and
-"   limitations under the License.
 " }
 
 " Environment {
@@ -108,8 +100,7 @@
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     set virtualedit=onemore             " Allow for cursor beyond last character
     set history=1000                    " Store a ton of history (default is 20)
-    "set spell                           " Spell checking on
-    set nospell
+    set spell                           " Spell checking off
     set hidden                          " Allow buffer switching without saving
     set iskeyword-=.                    " '.' is an end of word designator
     set iskeyword-=#                    " '#' is an end of word designator
@@ -208,8 +199,8 @@
     set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
     set scrolljump=5                " Lines to scroll when cursor leaves screen
     set scrolloff=3                 " Minimum lines to keep above and below cursor
-    "set foldenable                  " Auto fold code
-    set list
+    set nofoldenable                " No auto fold code
+    set nolist
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
 " }
@@ -528,6 +519,26 @@
         endif
     " }
 
+    " EasyMotion {
+        if isdirectory(expand("$VIMBUNDLE_ROOT/vim-easymotion/"))
+            let g:EasyMotion_do_mapping = 0
+            " Turn on case insensitive feature
+            let g:EasyMotion_smartcase = 1
+            nmap <Leader>jj <Plug>(easymotion-overwin-f)
+            nmap <Leader>jJ <Plug>(easymotion-overwin-f2)
+            map <Leader>jf <Plug>(easymotion-j)
+            map <Leader>jb <Plug>(easymotion-k)
+            map  <Leader>jw <Plug>(easymotion-bd-w)
+            nmap <Leader>jw <Plug>(easymotion-overwin-w)
+        endif
+    " }
+
+    " YankRing {
+        if isdirectory(expand("$VIMBUNDLE_ROOT/YankRing.vim/"))
+            nnoremap <silent> <Leader>y :YRShow<CR>
+        endif
+    " }
+
     " Misc {
         if isdirectory(expand("$VIMBUNDLE_ROOT/nerdtree"))
             let g:NERDShutUp=1
@@ -596,7 +607,6 @@
             map <leader>fT :NERDTreeFind<CR>
             "nmap <leader>nt :NERDTreeFind<CR>
 
-            let NERDTreeShowBookmarks=1
             let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
             let NERDTreeChDirMode=0
             let NERDTreeQuitOnOpen=1

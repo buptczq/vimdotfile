@@ -5,22 +5,8 @@ if has('gui_running')
     set go=c
 endif
 
-set nospell
-let g:EasyMotion_do_mapping = 0
-nmap s <Plug>(easymotion-overwin-f)
-
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
-set nofoldenable
 set langmenu=en_US
 let $LANG = 'en_US'
 
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
 nnoremap <silent> <Leader>p :YRShow<CR>
 
-
-set nolist

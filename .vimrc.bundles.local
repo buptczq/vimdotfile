@@ -3,4 +3,5 @@ Plug 'mhinz/vim-startify'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'vim-scripts/YankRing.vim'
+Plug 'MattesGroeger/vim-bookmarks'
 
