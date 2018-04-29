@@ -100,7 +100,7 @@
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     set virtualedit=onemore             " Allow for cursor beyond last character
     set history=1000                    " Store a ton of history (default is 20)
-    set spell                           " Spell checking off
+    set nospell                           " Spell checking off
     set hidden                          " Allow buffer switching without saving
     set iskeyword-=.                    " '.' is an end of word designator
     set iskeyword-=#                    " '#' is an end of word designator
@@ -410,7 +410,7 @@
 
     " Easier formatting
     "nnoremap <silent> <leader>q gwip
-    
+
     " Buffer
     nnoremap <silent> <Leader>bn :bn<CR>
     nnoremap <silent> <Leader>bp :bp<CR>
@@ -509,6 +509,13 @@
             map <Leader>; <Plug>NERDCommenterToggle
             map <Leader>cl <Plug>NERDCommenterComment
             map <Leader>cL <Plug>NERDCommenterInvert
+        endif
+    " }
+
+    " Ack.vim {
+        if isdirectory(expand("$VIMBUNDLE_ROOT/ack.vim/"))
+            map <Leader>ss :Ack<Space>
+            let g:ack_autoclose = 1
         endif
     " }
 
@@ -641,9 +648,9 @@
     " Session List {
         set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
         if isdirectory(expand("$VIMBUNDLE_ROOT/sessionman.vim/"))
-            nmap <leader>sl :SessionList<CR>
-            nmap <leader>ss :SessionSave<CR>
-            nmap <leader>sc :SessionClose<CR>
+            nmap <leader>pp :SessionList<CR>
+            nmap <leader>ps :SessionSave<CR>
+            nmap <leader>pc :SessionClose<CR>
         endif
     " }
 

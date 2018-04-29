@@ -80,7 +80,7 @@
             "Plug 'ludovicchabant/vim-gutentags'
             Plug 'terryma/vim-multiple-cursors'
 
-            Plug 'vim-scripts/sessionman.vim'
+            " Plug 'vim-scripts/sessionman.vim'
             Plug 'vim-scripts/matchit.zip'
             Plug 'vim-scripts/DoxygenToolkit.vim'
 
@@ -260,7 +260,7 @@
 
     " Go Lang {
         if count(g:spf13_bundle_groups, 'go')
-            "Plug 'Blackrush/vim-gocode'
+            " Plug 'Blackrush/vim-gocode'
             Plug 'fatih/vim-go'
         endif
     " }
