@@ -12,4 +12,4 @@ set langmenu=en_US
 let $LANG = 'en_US'
 
 nnoremap <silent> <Leader>p :YRShow<CR>
-
+inoremap jk <Esc>

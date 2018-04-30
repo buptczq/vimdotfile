@@ -74,3 +74,4 @@ nmap <Leader>ew :action EmmetUpdateTag<CR>
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv
+inoremap jk <Esc>
