@@ -75,13 +75,12 @@
             Plug 'rhysd/conflict-marker.vim'
             Plug 'jiangmiao/auto-pairs'
             Plug 'Yggdroot/LeaderF'
-            Plug 'terryma/vim-multiple-cursors'
 
             Plug 'vim-scripts/matchit.zip'
             Plug 'vim-scripts/DoxygenToolkit.vim'
             Plug 'mhinz/vim-startify'
-            Plug 'terryma/vim-multiple-cursors'
             Plug 'vim-scripts/YankRing.vim'
+            Plug 'terryma/vim-multiple-cursors'
             Plug 'MattesGroeger/vim-bookmarks'
 
             Plug 'skywind3000/asyncrun.vim'
