@@ -4,6 +4,9 @@ if has('gui_running')
     autocmd GUIEnter * simalt ~x
     set go=c
 endif
+if has('gui_running') && has('win32')
+    map <F11> :call libcallnr('gvimfullscreen.dll', 'ToggleFullScreen', 0)<CR>
+endif
 
 set langmenu=en_US
 let $LANG = 'en_US'
