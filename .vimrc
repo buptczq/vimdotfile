@@ -1129,6 +1129,7 @@
             endif
             let g:airline_symbols.linenr = ''
             let g:airline_symbols.whitespace = ''
+            let g:airline_symbols.maxlinenr = ''
             if !exists('g:airline_theme')
                 let g:airline_theme = 'deus'
             endif
