@@ -66,6 +66,11 @@ map <Leader>jb :action AceLineAction<CR>
 nnoremap <Leader>; :action CommentByLineComment<CR>
 vnoremap <Leader>; :<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action CommentByLineComment<cr>
 
+" emmet
+" nmap <Leader>ee :action Emmet
+nmap <Leader>ey :action EmmetUpdateTag<CR>
+nmap <Leader>ew :action EmmetUpdateTag<CR>
+
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv
