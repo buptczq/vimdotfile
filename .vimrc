@@ -546,6 +546,14 @@
         endif
     " }
 
+    " emmet.vim {
+        if isdirectory(expand("$VIMBUNDLE_ROOT/emmet-vim/"))
+            nmap   <Leader>ee   <plug>(emmet-expand-abbr)
+            nmap   <Leader>ew   <plug>(emmet-expand-word)
+            nmap   <Leader>ey   <plug>(emmet-update-tag)
+        endif
+    " }
+
     " Misc {
         if isdirectory(expand("$VIMBUNDLE_ROOT/nerdtree"))
             let g:NERDShutUp=1
