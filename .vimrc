@@ -440,8 +440,6 @@
             let g:go_highlight_operators = 1
             let g:go_highlight_build_constraints = 1
             let g:go_fmt_command = "goimports"
-            let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-            let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
             au FileType go nmap <Leader>i <Plug>(go-implements)
             "au FileType go nmap <Leader>i <Plug>(go-info)
             " au FileType go nmap <Leader>e <Plug>(go-rename)
@@ -1084,13 +1082,14 @@
         endif
     " }
 
-    " FIXME: Isn't this for Syntastic to handle?
-    " Haskell post write lint and check with ghcmod
-    " $ `cabal install ghcmod` if missing and ensure
-    " $VIMRC_ROOT/.cabal/bin is in your $PATH.
-    if !executable("ghcmod")
-        autocmd BufWritePost *.hs GhcModCheckAndLintAsync
-    endif
+    " ALE {
+        if isdirectory(expand("$VIMBUNDLE_ROOT/ale/"))
+            let g:ale_sign_column_always = 1
+            let g:ale_set_highlights = 0
+            let g:airline#extensions#ale#enabled = 1
+
+        endif
+    " }
 
     " UndoTree {
         if isdirectory(expand("$VIMBUNDLE_ROOT/undotree/"))
