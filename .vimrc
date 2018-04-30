@@ -1124,8 +1124,13 @@
         " See `:echo g:airline_theme_map` for some more choices
         " Default in terminal vim is 'dark'
         if isdirectory(expand("$VIMBUNDLE_ROOT/vim-airline-themes/"))
+            if !exists('g:airline_symbols')
+                let g:airline_symbols = {}
+            endif
+            let g:airline_symbols.linenr = ''
+            let g:airline_symbols.whitespace = ''
             if !exists('g:airline_theme')
-                let g:airline_theme = 'solarized'
+                let g:airline_theme = 'deus'
             endif
             if !exists('g:airline_powerline_fonts')
                 " Use the default set of separators with a few customizations
