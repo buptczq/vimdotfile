@@ -74,21 +74,16 @@
             Plug 'tpope/vim-repeat'
             Plug 'rhysd/conflict-marker.vim'
             Plug 'jiangmiao/auto-pairs'
-            "Plug 'ctrlpvim/ctrlp.vim'
-            "Plug 'tacahiroy/ctrlp-funky'
             Plug 'Yggdroot/LeaderF'
-            "Plug 'ludovicchabant/vim-gutentags'
             Plug 'terryma/vim-multiple-cursors'
 
-            " Plug 'vim-scripts/sessionman.vim'
             Plug 'vim-scripts/matchit.zip'
             Plug 'vim-scripts/DoxygenToolkit.vim'
+            Plug 'mhinz/vim-startify'
+            Plug 'terryma/vim-multiple-cursors'
+            Plug 'vim-scripts/YankRing.vim'
+            Plug 'MattesGroeger/vim-bookmarks'
 
-            Plug 'lambdalisue/vim-gista', { 'on': 'Gista' }
-            Plug 'pprovost/vim-ps1', { 'for': 'ps1' }
-            Plug 'tbastos/vim-lua', { 'for': 'lua' }
-            Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
-            Plug 'justinmk/vim-syntax-extra', { 'for': ['c', 'bison', 'flex', 'cpp'] }
             Plug 'skywind3000/asyncrun.vim'
 
             let g:asyncrun_open = 6
@@ -114,8 +109,6 @@
             Plug 'mhinz/vim-signify'
             Plug 'tpope/vim-abolish'
             Plug 'osyo-manga/vim-over'
-            Plug 'kana/vim-textobj-user'
-            Plug 'kana/vim-textobj-indent'
             Plug 'gcmt/wildfire.vim'
         endif
     " }
@@ -125,6 +118,8 @@
             Plug 'reedes/vim-litecorrect'
             Plug 'reedes/vim-textobj-sentence'
             Plug 'reedes/vim-textobj-quote'
+            Plug 'kana/vim-textobj-user'
+            Plug 'kana/vim-textobj-indent'
             Plug 'reedes/vim-wordy'
         endif
     " }
@@ -139,10 +134,10 @@
             Plug 'tpope/vim-commentary'
             Plug 'godlygeek/tabular'
             Plug 'luochen1990/rainbow'
-            Plug 'luochen1990/rainbow'
             "if executable('ctags')
                 "Plug 'majutsushi/tagbar'
             "endif
+            "Plug 'ludovicchabant/vim-gutentags'
 
         endif
     " }
@@ -173,7 +168,6 @@
             Plug 'Shougo/deoplete.nvim'
             Plug 'roxma/nvim-yarp'
             Plug 'roxma/vim-hug-neovim-rpc'
-            let g:deoplete#enable_at_startup = 1
         elseif count(g:spf13_bundle_groups, 'completor')
             Plug 'maralla/completor.vim'
             Plug 'maralla/completor-neosnippet'
@@ -185,22 +179,22 @@
 
     " PHP {
         if count(g:spf13_bundle_groups, 'php')
-            Plug 'spf13/PIV'
-            Plug 'arnaud-lb/vim-php-namespace'
-            Plug 'beyondwords/vim-twig'
+            Plug 'spf13/PIV', { 'for': 'php' }
+            Plug 'arnaud-lb/vim-php-namespace', { 'for': 'php' }
+            Plug 'beyondwords/vim-twig', { 'for': 'php' }
         endif
     " }
 
     " Python {
         if count(g:spf13_bundle_groups, 'python')
             " Pick either python-mode or pyflakes & pydoc
-            Plug 'klen/python-mode'
-            Plug 'yssource/python.vim'
+            Plug 'klen/python-mode', { 'for': 'python' }
+            Plug 'yssource/python.vim', { 'for': 'python' }
 
-            Plug 'vim-scripts/python_match.vim'
-            Plug 'mjbrownie/pythoncomplete.vim'
+            Plug 'vim-scripts/python_match.vim', { 'for': 'python' }
+            Plug 'mjbrownie/pythoncomplete.vim', { 'for': 'python' }
 
-            Plug 'vim-python/python-syntax', { 'for': ['python'] }
+            Plug 'vim-python/python-syntax', { 'for': 'python' }
             Plug 'bps/vim-textobj-python', {'for': 'python'}
         endif
     " }
@@ -250,7 +244,7 @@
 
     " Ruby {
         if count(g:spf13_bundle_groups, 'ruby')
-            Plug 'tpope/vim-rails'
+            Plug 'tpope/vim-rails', { 'for': 'ruby' }
             let g:rubycomplete_buffer_loading = 1
             "let g:rubycomplete_classes_in_global = 1
             "let g:rubycomplete_rails = 1
@@ -287,6 +281,13 @@
             Plug 'cespare/vim-toml'
             Plug 'quentindecock/vim-cucumber-align-pipes'
             Plug 'saltstack/salt-vim'
+            Plug 'posva/vim-vue'
+            Plug 'ekalinin/dockerfile.vim'
+            Plug 'lambdalisue/vim-gista', { 'on': 'Gista' }
+            Plug 'pprovost/vim-ps1', { 'for': 'ps1' }
+            Plug 'tbastos/vim-lua', { 'for': 'lua' }
+            Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
+            Plug 'justinmk/vim-syntax-extra', { 'for': ['c', 'bison', 'flex', 'cpp'] }
         endif
     " }
 

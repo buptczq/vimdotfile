@@ -1,9 +1,9 @@
-" set guifont=courier_new:h12
 if has('gui_running')
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
     autocmd GUIEnter * simalt ~x
     set go=c
 endif
+
 if has('gui_running') && has('win32')
     map <F11> :call libcallnr('gvimfullscreen.dll', 'ToggleFullScreen', 0)<CR>
 endif
