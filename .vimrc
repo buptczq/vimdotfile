@@ -261,12 +261,12 @@
     "   let g:spf13_edit_config_mapping='<leader>ec'
     "   let g:spf13_apply_config_mapping='<leader>sc'
     if !exists('g:spf13_edit_config_mapping')
-        let s:spf13_edit_config_mapping = '<leader>ev'
+        let s:spf13_edit_config_mapping = '<leader>fed'
     else
         let s:spf13_edit_config_mapping = g:spf13_edit_config_mapping
     endif
     if !exists('g:spf13_apply_config_mapping')
-        let s:spf13_apply_config_mapping = '<leader>sv'
+        let s:spf13_apply_config_mapping = '<leader>fer'
     else
         let s:spf13_apply_config_mapping = g:spf13_apply_config_mapping
     endif
@@ -370,7 +370,7 @@
     "nmap <leader>f9 :set foldlevel=9<CR>
 
     " Find merge conflict markers
-    map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+    map <leader>sc /\v^[<\|=>]{7}( .*\|$)<CR>
 
     " Shortcuts
     " Change Working Directory to that of the current file
@@ -396,10 +396,6 @@
     "map <leader>ev :vsp %%
     "map <leader>et :tabe %%
 
-    " Adjust viewports to the same size
-    map <Leader>w= <C-w>=
-    map <Leader>wd <C-w>c
-
     " Map <Leader>ff to display all lines with keyword under cursor
     " and ask which one to jump to
     "nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
@@ -421,6 +417,16 @@
     nnoremap <silent> <Leader>fS :wa<CR>
     nnoremap <silent> <Leader>w :w<CR>
     nnoremap <silent> <Leader>q :wq<CR>
+    " Windows
+    nnoremap <Leader>wj <C-W>j<C-W>_
+    nnoremap <Leader>wk <C-W>k<C-W>_
+    nnoremap <Leader>wl <C-W>l<C-W>_
+    nnoremap <Leader>wh <C-W>h<C-W>_
+    nnoremap <Leader>ww <C-W>w<C-W>_
+    nnoremap <silent> <Leader>ws :split<CR>
+    nnoremap <silent> <Leader>wv :vsplit<CR>
+    map <Leader>w= <C-w>=
+    map <Leader>wd <C-w>c
     " Toggle
     nnoremap <silent> <Leader>ts :setlocal spell!<CR>
     nnoremap <silent> <Leader>tn :setlocal nonumber!<CR>
@@ -540,15 +546,15 @@
 
     " YankRing {
         if isdirectory(expand("$VIMBUNDLE_ROOT/YankRing.vim/"))
-            nnoremap <silent> <Leader>y :YRShow<CR>
+            nnoremap <silent> <Leader>wy :YRShow<CR>
         endif
     " }
 
     " emmet.vim {
         if isdirectory(expand("$VIMBUNDLE_ROOT/emmet-vim/"))
-            nmap   <Leader>ee   <plug>(emmet-expand-abbr)
-            nmap   <Leader>ew   <plug>(emmet-expand-word)
-            nmap   <Leader>ey   <plug>(emmet-update-tag)
+            nmap   <Leader>xee   <plug>(emmet-expand-abbr)
+            nmap   <Leader>xew   <plug>(emmet-expand-word)
+            nmap   <Leader>xeu   <plug>(emmet-update-tag)
         endif
     " }
 
@@ -605,7 +611,7 @@
     " AutoCloseTag {
         " Make it so AutoCloseTag works for xml and xhtml files as well
         au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
-        nmap <Leader>ac <Plug>ToggleAutoCloseMappings
+        nmap <Leader>lac <Plug>ToggleAutoCloseMappings
     " }
 
     " SnipMate {
@@ -632,22 +638,22 @@
 
     " Tabularize {
         if isdirectory(expand("$VIMBUNDLE_ROOT/tabular"))
-            nmap <Leader>a& :Tabularize /&<CR>
-            vmap <Leader>a& :Tabularize /&<CR>
-            nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-            vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-            nmap <Leader>a=> :Tabularize /=><CR>
-            vmap <Leader>a=> :Tabularize /=><CR>
-            nmap <Leader>a: :Tabularize /:<CR>
-            vmap <Leader>a: :Tabularize /:<CR>
-            nmap <Leader>a:: :Tabularize /:\zs<CR>
-            vmap <Leader>a:: :Tabularize /:\zs<CR>
-            nmap <Leader>a, :Tabularize /,<CR>
-            vmap <Leader>a, :Tabularize /,<CR>
-            nmap <Leader>a,, :Tabularize /,\zs<CR>
-            vmap <Leader>a,, :Tabularize /,\zs<CR>
-            nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-            vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+            nmap <Leader>xa& :Tabularize /&<CR>
+            vmap <Leader>xa& :Tabularize /&<CR>
+            nmap <Leader>xa= :Tabularize /^[^=]*\zs=<CR>
+            vmap <Leader>xa= :Tabularize /^[^=]*\zs=<CR>
+            nmap <Leader>xa=> :Tabularize /=><CR>
+            vmap <Leader>xa=> :Tabularize /=><CR>
+            nmap <Leader>xa: :Tabularize /:<CR>
+            vmap <Leader>xa: :Tabularize /:<CR>
+            nmap <Leader>xa:: :Tabularize /:\zs<CR>
+            vmap <Leader>xa:: :Tabularize /:\zs<CR>
+            nmap <Leader>xa, :Tabularize /,<CR>
+            vmap <Leader>xa, :Tabularize /,<CR>
+            nmap <Leader>xa,, :Tabularize /,\zs<CR>
+            vmap <Leader>xa,, :Tabularize /,\zs<CR>
+            nmap <Leader>xa<Bar> :Tabularize /<Bar><CR>
+            vmap <Leader>xa<Bar> :Tabularize /<Bar><CR>
         endif
     " }
 
@@ -661,7 +667,7 @@
     " }
 
     " JSON {
-        nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+        nmap <leader>xjj <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
         let g:vim_json_syntax_conceal = 0
     " }
 
@@ -1047,13 +1053,15 @@
             let g:ale_sign_column_always = 1
             let g:ale_set_highlights = 0
             let g:airline#extensions#ale#enabled = 1
-
+            nmap <silent> <Leader>ep <Plug>(ale_previous)
+            nmap <silent> <Leader>en <Plug>(ale_next)
+            nmap <silent> <Leader>ec <Plug>(ale_reset)
         endif
     " }
 
     " UndoTree {
         if isdirectory(expand("$VIMBUNDLE_ROOT/undotree/"))
-            nnoremap <Leader>u :UndotreeToggle<CR>
+            nnoremap <Leader>wu :UndotreeToggle<CR>
             " If undotree is opened, it is likely one wants to interact with it.
             let g:undotree_SetFocusWhenToggle=1
         endif
