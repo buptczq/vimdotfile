@@ -11,20 +11,37 @@ set clipboard=unnamedplus,unnamed
 set ignorecase smartcase
 set history=10000
 
+" General
+vnoremap . :normal .<CR>
+noremap j gj
+noremap k gk
+map zl zL
+map zh zH
+nnoremap <silent> <Leader><Tab> :e#<CR>
+nnoremap <Leader>r :action Run<CR>
+vnoremap < <gv
+vnoremap > >gv
+inoremap jk <Esc>
 noremap J :action EditorJoinLines<CR>
 
 " Windows
+map <S-H> gT
+map <S-L> gt
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-H> <C-W>h
 nnoremap <C-L> <C-W>l
 map <Leader>w= <C-w>=
 map <Leader>wd <C-w>c
-
-" Easier horizontal scrolling
-map zl zL
-map zh zH
-nnoremap <Leader><Tab> :e#<CR>
+nnoremap <Leader>wj <C-W>j<C-W>_
+nnoremap <Leader>wk <C-W>k<C-W>_
+nnoremap <Leader>wl <C-W>l<C-W>_
+nnoremap <Leader>wh <C-W>h<C-W>_
+nnoremap <Leader>ww <C-W>w<C-W>_
+nnoremap <silent> <Leader>ws :split<CR>
+nnoremap <silent> <Leader>wv :vsplit<CR>
+nnoremap <Leader>wu :action LocalHistory.ShowHistory<CR>
+vnoremap <Leader>wu :<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action LocalHistory.ShowSelectionHistory<CR>
 
 " Toggle
 nnoremap <silent> <Leader>ts :setlocal spell!<CR>
@@ -33,45 +50,35 @@ nnoremap <silent> <Leader>tl :setlocal nolist!<CR>
 nnoremap <silent> <Leader>th :set hlsearch!<CR>
 nnoremap <silent> <Leader>tw :setlocal wrap! breakindent!<CR>
 
-" Wrapped lines goes down/up to next row, rather than next line in file.
-noremap j gj
-noremap k gk
-
-map <S-H> gT
-map <S-L> gt
-map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 " File
 nnoremap <silent> <Leader>fs :w<CR>
 nnoremap <silent> <Leader>fS :wa<CR>
 nnoremap <silent> <Leader>w :w<CR>
 nnoremap <silent> <Leader>q :wq<CR>
-
 nnoremap <Leader>ff :action SearchEverywhere<CR>
 nnoremap <Leader>ft :action ActivateProjectToolWindow<CR>
 nnoremap <Leader>fh :action RecentFiles<CR>
 
+" Search
 nnoremap <Leader>ss :action FindInPath<CR>
+map <leader>sc /\v^[<\|=>]{7}( .*\|$)<CR>
 
-nnoremap <Leader>r :action Rerun<CR>
-map <Leader>i :action Generate<CR>
-nnoremap <Leader>u :action LocalHistory.ShowHistory<CR>
-vnoremap <Leader>u :<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action LocalHistory.ShowSelectionHistory<CR>
-
-"nmap s :action AceAction<CR>
-nmap <Leader>jj :action KJumpAction<CR>
+" Jump
+nmap <Leader>jj :action AceAction<CR>
 map <Leader>jf :action AceLineAction<CR>
 map <Leader>jb :action AceLineAction<CR>
 
-" comment
+" Language
+map <Leader>li :action Generate<CR>
+
+" Comment
 nnoremap <Leader>; :action CommentByLineComment<CR>
 vnoremap <Leader>; :<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action CommentByLineComment<cr>
 
-" emmet
-" nmap <Leader>ee :action Emmet
-nmap <Leader>ey :action EmmetUpdateTag<CR>
-nmap <Leader>ew :action EmmetUpdateTag<CR>
+" Emmet
+nmap <Leader>xeu :action EmmetUpdateTag<CR>
 
-" Visual shifting (does not exit Visual mode)
-vnoremap < <gv
-vnoremap > >gv
-inoremap jk <Esc>
+" Error
+nmap <silent> <Leader>ep :action GotoPreviousError<CR>
+nmap <silent> <Leader>en :action GotoNextError<CR>
+

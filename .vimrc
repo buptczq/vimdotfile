@@ -411,7 +411,7 @@
     nnoremap <silent> <Leader>bn :bn<CR>
     nnoremap <silent> <Leader>bp :bp<CR>
     nnoremap <silent> <Leader>bd :bdelete<CR>
-    nnoremap <Leader><Tab> :e#<CR>
+    nnoremap <silent> <Leader><Tab> :e#<CR>
     " File
     nnoremap <silent> <Leader>fs :w<CR>
     nnoremap <silent> <Leader>fS :wa<CR>
@@ -446,7 +446,7 @@
             let g:go_highlight_operators = 1
             let g:go_highlight_build_constraints = 1
             let g:go_fmt_command = "goimports"
-            au FileType go nmap <Leader>i <Plug>(go-implements)
+            au FileType go nmap <Leader>li <Plug>(go-implements)
             "au FileType go nmap <Leader>i <Plug>(go-info)
             " au FileType go nmap <Leader>e <Plug>(go-rename)
             au FileType go nmap <leader>r <Plug>(go-run)
