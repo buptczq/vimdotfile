@@ -692,6 +692,7 @@
             let g:Lf_ShortcutF = '<Leader>ff'
             let g:Lf_ShortcutB = '<Leader>fb'
             nnoremap <Leader>fh :LeaderfMru<cr>
+            nnoremap <Leader>tt :LeaderfFunction<cr>
             "let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
             "let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
@@ -1014,7 +1015,6 @@
             let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*)$'
             let g:completor_php_omni_trigger = '[^. \t]->\h\w*\|\h\w*::'
             let g:completor_perl_omni_trigger = '\h\w*->\h\w*\|\h\w*::'
-            let g:completor_ruby_omni_trigger = '[^. *\t]\.\h\w*\|\h\w*::'
     " }
     "
     " Normal Vim omni-completion {
