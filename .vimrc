@@ -716,6 +716,14 @@
         endif
     "}
 
+    " Goyo {
+        if isdirectory(expand("$VIMBUNDLE_ROOT/goyo.vim/"))
+            autocmd! User GoyoEnter Limelight
+            autocmd! User GoyoLeave Limelight!
+            nnoremap <silent> <leader>tl :Goyo<CR>
+        endif
+    "}
+
     " Fugitive {
         if isdirectory(expand("$VIMBUNDLE_ROOT/vim-fugitive/"))
             nnoremap <silent> <leader>gs :Gstatus<CR>
