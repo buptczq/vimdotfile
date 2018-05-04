@@ -721,6 +721,10 @@
             autocmd! User GoyoEnter Limelight
             autocmd! User GoyoLeave Limelight!
             nnoremap <silent> <leader>tl :Goyo<CR>
+            let g:goyo_width = 85
+            let g:goyo_height = "80%"
+            let g:goyo_linenr = 0
+
         endif
     "}
 
