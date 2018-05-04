@@ -4,12 +4,24 @@
     {
       "pattern": "https?://mail.google.com/*",
       "passKeys": ""
+    },
+    {
+      "pattern": "https?://10.3.10.17/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://10.3.9.110/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://10.3.9.110/*",
+      "passKeys": ""
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "unmapAll\n\" VIM\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\nmap <c-d> scrollPageDown\nmap <c-u> scrollPageUp\nmap h scrollLeft\nmap l scrollRight\nmap zh scrollLeft\nmap zl scrollRight\nmap yy copyCurrentUrl\nmap p openCopiedUrlInCurrentTab\nmap P openCopiedUrlInNewTab\nmap i enterInsertMode\nmap v enterVisualMode\nmap V enterVisualLineMode\nmap gi focusInput\nmap mm Marks.activateCreateMode swap\nmap ` Marks.activateGotoMode swap\nmap / enterFindMode\nmap n performFind\nmap N performBackwardsFind\nmap H previousTab\nmap L nextTab\nmap u goBack\nmap ? showHelp\nmap <c-r> goForward\nmap <c-o> passNextKey\nmapkey <c-c> <c-[>\n\n\" Chrome\nmap r reload\nmap R reload hard\nmap f LinkHints.activateMode\nmap <space>jj LinkHints.activateMode\nmap <space>jw LinkHints.activateModeToOpenInNewForegroundTab\nmap <space>ja LinkHints.activateModeWithQueue\nmap <space>ff Vomnibar.activateInNewTab\nmap <space>fb Vomnibar.activateBookmarksInNewTab\nmap <space>fe Vomnibar.activateEditUrl\nmap <space>q removeTab\nmap <space>Q closeOtherTabs\nmap <space><tab> visitPreviousTab\nmap <space>0 firstTab\nmap <space>$ lastTab\nmap <space>ws duplicateTab\nmap <space>wu restoreTab\nmap J goNext\nmap K goPrevious",
+  "keyMappings": "unmapAll\n\" VIM\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\nmap <c-d> scrollPageDown\nmap <c-u> scrollPageUp\nmap h scrollLeft\nmap l scrollRight\nmap zh scrollLeft\nmap zl scrollRight\nmap yy copyCurrentUrl\nmap p openCopiedUrlInCurrentTab\nmap P openCopiedUrlInNewTab\nmap i enterInsertMode\nmap v enterVisualMode\nmap V enterVisualLineMode\nmap gi focusInput\nmap mm Marks.activateCreateMode swap\nmap ` Marks.activateGotoMode swap\nmap / enterFindMode\nmap n performFind\nmap N performBackwardsFind\nmap H previousTab\nmap L nextTab\nmap u goBack\nmap ? showHelp\nmap <c-r> goForward\nmap <c-o> passNextKey\nmapkey <c-c> <c-[>\n\n\" Chrome\nmap r reload\nmap R reload hard\nmap f LinkHints.activateMode\nmap F LinkHints.activateModeToOpenInNewForegroundTab\nmap <space>jj LinkHints.activateMode\nmap <space>jJ LinkHints.activateModeToOpenInNewForegroundTab\nmap <space>ja LinkHints.activateModeWithQueue\nmap <space>ff Vomnibar.activateInNewTab\nmap <space>fb Vomnibar.activateBookmarksInNewTab\nmap <space>fe Vomnibar.activateEditUrl\nmap <space>q removeTab\nmap <space>Q closeOtherTabs\nmap <space><tab> visitPreviousTab\nmap <space>0 firstTab\nmap <space>$ lastTab\nmap <space>ws duplicateTab\nmap <space>wu restoreTab\nmap J goNext\nmap K goPrevious",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",

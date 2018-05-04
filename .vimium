@@ -34,8 +34,9 @@ mapkey <c-c> <c-[>
 map r reload
 map R reload hard
 map f LinkHints.activateMode
+map F LinkHints.activateModeToOpenInNewForegroundTab
 map <space>jj LinkHints.activateMode
-map <space>jw LinkHints.activateModeToOpenInNewForegroundTab
+map <space>jJ LinkHints.activateModeToOpenInNewForegroundTab
 map <space>ja LinkHints.activateModeWithQueue
 map <space>ff Vomnibar.activateInNewTab
 map <space>fb Vomnibar.activateBookmarksInNewTab
