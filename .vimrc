@@ -358,16 +358,16 @@
 
 
     " Code folding options
-    "nmap <leader>f0 :set foldlevel=0<CR>
-    "nmap <leader>f1 :set foldlevel=1<CR>
-    "nmap <leader>f2 :set foldlevel=2<CR>
-    "nmap <leader>f3 :set foldlevel=3<CR>
-    "nmap <leader>f4 :set foldlevel=4<CR>
-    "nmap <leader>f5 :set foldlevel=5<CR>
-    "nmap <leader>f6 :set foldlevel=6<CR>
-    "nmap <leader>f7 :set foldlevel=7<CR>
-    "nmap <leader>f8 :set foldlevel=8<CR>
-    "nmap <leader>f9 :set foldlevel=9<CR>
+    nmap <leader>f0 :set foldlevel=0<CR>
+    nmap <leader>f1 :set foldlevel=1<CR>
+    nmap <leader>f2 :set foldlevel=2<CR>
+    nmap <leader>f3 :set foldlevel=3<CR>
+    nmap <leader>f4 :set foldlevel=4<CR>
+    nmap <leader>f5 :set foldlevel=5<CR>
+    nmap <leader>f6 :set foldlevel=6<CR>
+    nmap <leader>f7 :set foldlevel=7<CR>
+    nmap <leader>f8 :set foldlevel=8<CR>
+    nmap <leader>f9 :set foldlevel=9<CR>
 
     " Find merge conflict markers
     map <leader>sc /\v^[<\|=>]{7}( .*\|$)<CR>
@@ -390,22 +390,22 @@
 
     " Some helpers to edit mode
     " http://vimcasts.org/e/14
-    "cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
-    "map <leader>ew :e %%
-    "map <leader>es :sp %%
-    "map <leader>ev :vsp %%
-    "map <leader>et :tabe %%
+    " cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+    " map <leader>ew :e %%
+    " map <leader>es :sp %%
+    " map <leader>ev :vsp %%
+    " map <leader>et :tabe %%
 
     " Map <Leader>ff to display all lines with keyword under cursor
     " and ask which one to jump to
-    "nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+    " nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
     " Easier horizontal scrolling
     map zl zL
     map zh zH
 
     " Easier formatting
-    "nnoremap <silent> <leader>q gwip
+    " nnoremap <silent> <leader>q gwip
 
     " Buffer
     nnoremap <silent> <Leader>bn :bn<CR>
@@ -447,14 +447,14 @@
             let g:go_highlight_build_constraints = 1
             let g:go_fmt_command = "goimports"
             au FileType go nmap <Leader>li <Plug>(go-implements)
-            "au FileType go nmap <Leader>i <Plug>(go-info)
+            " au FileType go nmap <Leader>i <Plug>(go-info)
             " au FileType go nmap <Leader>e <Plug>(go-rename)
             au FileType go nmap <leader>r <Plug>(go-run)
-            "au FileType go nmap <leader>b <Plug>(go-build)
-            "au FileType go nmap <leader>t <Plug>(go-test)
-            "au FileType go nmap <Leader>gd <Plug>(go-doc)
-            "au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-            "au FileType go nmap <leader>co <Plug>(go-coverage)
+            " au FileType go nmap <leader>b <Plug>(go-build)
+            " au FileType go nmap <leader>t <Plug>(go-test)
+            " au FileType go nmap <Leader>gd <Plug>(go-doc)
+            " au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+            " au FileType go nmap <leader>co <Plug>(go-coverage)
         endif
         " }
 
@@ -692,6 +692,7 @@
             let g:Lf_ShortcutF = '<Leader>ff'
             let g:Lf_ShortcutB = '<Leader>fb'
             nnoremap <Leader>fh :LeaderfMru<cr>
+            nnoremap <Leader>tt :LeaderfFunction<cr>
             "let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
             "let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
@@ -721,6 +722,10 @@
             autocmd! User GoyoEnter Limelight
             autocmd! User GoyoLeave Limelight!
             nnoremap <silent> <leader>tl :Goyo<CR>
+            let g:goyo_width = 85
+            let g:goyo_height = "80%"
+            let g:goyo_linenr = 0
+
         endif
     "}
 
@@ -1010,7 +1015,6 @@
             let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*)$'
             let g:completor_php_omni_trigger = '[^. \t]->\h\w*\|\h\w*::'
             let g:completor_perl_omni_trigger = '\h\w*->\h\w*\|\h\w*::'
-            let g:completor_ruby_omni_trigger = '[^. *\t]\.\h\w*\|\h\w*::'
     " }
     "
     " Normal Vim omni-completion {

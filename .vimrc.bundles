@@ -119,6 +119,7 @@
             Plug 'reedes/vim-textobj-quote'
             Plug 'kana/vim-textobj-user'
             Plug 'kana/vim-textobj-indent'
+            Plug 'sgur/vim-textobj-parameter'
             Plug 'reedes/vim-wordy'
         endif
     " }
@@ -133,10 +134,10 @@
             Plug 'tpope/vim-commentary'
             Plug 'godlygeek/tabular'
             Plug 'luochen1990/rainbow'
-            "if executable('ctags')
-                "Plug 'majutsushi/tagbar'
-            "endif
-            "Plug 'ludovicchabant/vim-gutentags'
+            " if executable('ctags')
+            "     Plug 'majutsushi/tagbar'
+            " endif
+            " Plug 'ludovicchabant/vim-gutentags'
 
         endif
     " }
@@ -245,8 +246,8 @@
         if count(g:spf13_bundle_groups, 'ruby')
             Plug 'tpope/vim-rails', { 'for': 'ruby' }
             let g:rubycomplete_buffer_loading = 1
-            "let g:rubycomplete_classes_in_global = 1
-            "let g:rubycomplete_rails = 1
+            " let g:rubycomplete_classes_in_global = 1
+            " let g:rubycomplete_rails = 1
         endif
     " }
 
