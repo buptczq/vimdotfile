@@ -28,7 +28,6 @@ map u goBack
 map ? showHelp
 map <c-r> goForward
 map <c-o> passNextKey
-mapkey <c-c> <c-[>
 
 " Chrome
 map r reload

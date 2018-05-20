@@ -1143,6 +1143,7 @@
                 set guifont=Andale\ Mono\ Regular:h12,Menlo\ Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
             elseif WINDOWS() && has("gui_running")
                 set guifont=Andale_Mono:h12,Menlo:h12,Consolas:h12,Courier_New:h12
+                set mouse=a                 " Enable mouse in Windows
             endif
         endif
     else
