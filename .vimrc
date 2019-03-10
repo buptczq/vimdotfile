@@ -565,7 +565,7 @@
         if isdirectory(expand("$VIMBUNDLE_ROOT/matchit.zip"))
             let b:match_ignorecase = 1
         endif
-        if isdirectory(expand("$VIMBUNDLE_ROOT/auto-pairs"))
+        if isdirectory(expand("$VIMBUNDLE_ROOT/auto-pairs-gentle"))
             let g:AutoPairsUseInsertedCount = 1
         endif
     " }
@@ -1018,6 +1018,12 @@
             let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*)$'
             let g:completor_php_omni_trigger = '[^. \t]->\h\w*\|\h\w*::'
             let g:completor_perl_omni_trigger = '\h\w*->\h\w*\|\h\w*::'
+    " }
+    " coc.nvim {
+        elseif count(g:spf13_bundle_groups, 'coc')
+            inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+            inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+            inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
     " }
     "
     " Normal Vim omni-completion {
