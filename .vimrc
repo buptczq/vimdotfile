@@ -565,6 +565,9 @@
         if isdirectory(expand("$VIMBUNDLE_ROOT/matchit.zip"))
             let b:match_ignorecase = 1
         endif
+        if isdirectory(expand("$VIMBUNDLE_ROOT/auto-pairs"))
+            let g:AutoPairsUseInsertedCount = 1
+        endif
     " }
 
     " OmniComplete {

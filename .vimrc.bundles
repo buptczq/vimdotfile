@@ -73,11 +73,12 @@
             Plug 'tpope/vim-surround'
             Plug 'tpope/vim-repeat'
             Plug 'rhysd/conflict-marker.vim'
-            Plug 'jiangmiao/auto-pairs'
             Plug 'Yggdroot/LeaderF'
 
             Plug 'vim-scripts/matchit.zip'
             Plug 'vim-scripts/DoxygenToolkit.vim'
+            Plug 'vim-scripts/visualstar.vim'
+            Plug 'vim-scripts/auto-pairs-gentle'
             Plug 'mhinz/vim-startify'
             Plug 'vim-scripts/YankRing.vim'
             Plug 'terryma/vim-multiple-cursors'
