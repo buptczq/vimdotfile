@@ -147,8 +147,7 @@
             endif
         elseif count(g:spf13_bundle_groups, 'coc')
             Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-            " Plug 'SirVer/ultisnips'
-            " Plug 'honza/vim-snippets'
+            Plug 'honza/vim-snippets'
         endif
     " }
 
