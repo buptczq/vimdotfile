@@ -87,6 +87,9 @@ endif
 "Always show current position
 set ruler
 
+" Highlight current line"
+set cursorline
+
 " Height of the command bar
 set cmdheight=1
 
@@ -142,8 +145,9 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Enable syntax highlighting
-syntax enable 
+syntax enable
 
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
@@ -175,19 +179,19 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set nowb
 set noswapfile
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Use spaces instead of tabs
 set expandtab
 
@@ -275,23 +279,42 @@ catch
 endtry
 
 " Return to last edit position when opening files (You want this!)
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+function! ResCur()
+    if line("'\"") <= line("$")
+        silent! normal! g`"
+        return 1
+    endif
+endfunction
+
+augroup resCur
+    autocmd!
+    autocmd BufWinEnter * call ResCur()
+augroup END
 
 " Completion
 set completeopt=menuone
 inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
-
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
+
 " Always show the status line
 set laststatus=2
 
-" Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
-
+set statusline=
+set statusline +=%#StatusLine#\ B%n\                "buffer number
+set statusline +=%#Normal#\ %<%t                    "filename
+set statusline +=%#Cursor#%m                        "modified flag
+set statusline +=%#Normal#%=                        "split
+set statusline +=%#String#%y\ %{&ff}\               "file format
+set statusline +=%{''.(&fenc!=''?&fenc:&enc).''}    "file encoding
+set statusline +=%#Keyword#%5l                      "current line
+set statusline +=%#Normal#/                         "split
+set statusline +=%#Constant#%L                      "total lines
+set statusline +=%#Keyword#\ :%3v\                  "virtual column number
+set statusline +=%#Number#0x%04B\                   "character under cursor
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
@@ -326,6 +349,13 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Better Unix / Windows compatibility
+set viewoptions=folds,options,cursor,unix,slash
+
+" Allow for cursor beyond last character
+set virtualedit=onemore
+
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
@@ -373,6 +403,7 @@ map <Leader>cL <Plug>NERDCommenterInvert
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Returns true if paste mode is enabled
 function! HasPaste()
     if &paste
