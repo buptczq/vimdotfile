@@ -113,16 +113,13 @@ set smartcase
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch 
-
-" Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set incsearch
 
 " For regular expressions turn magic on
 set magic
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 
 " How many tenths of a second to blink when matching brackets
 set mat=2
@@ -403,14 +400,6 @@ map <Leader>cL <Plug>NERDCommenterInvert
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    endif
-    return ''
-endfunction
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
