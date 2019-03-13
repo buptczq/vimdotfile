@@ -290,8 +290,9 @@ augroup END
 
 " Completion
 set completeopt=menuone
-inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 """"""""""""""""""""""""""""""
 " => Status line
