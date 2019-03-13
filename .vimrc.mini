@@ -146,8 +146,8 @@ endif
 " Enable syntax highlighting
 syntax enable
 
-" Enable 256 colors palette in xterm and screen
-if &term == 'xterm' || &term == 'screen'
+" Enable 256 colors palette
+if &term == 'xterm' || &term == 'screen' || &term == 'linux'
     set t_Co=256
 endif
 
