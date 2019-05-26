@@ -1,0 +1,92 @@
+{
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<leader>", ";"],
+            "after": ["g","c","c"]
+        },
+        {
+            "before": ["<C-j>"],
+            "after": ["<C-w>","j"]
+        },
+        {
+            "before": ["<C-k>"],
+            "after": ["<C-w>","k"]
+        },
+        {
+            "before": ["<C-h>"],
+            "after": ["<C-w>","h"]
+        },
+        {
+            "before": ["<C-l>"],
+            "after": ["<C-w>","l"]
+        },
+        {
+            "before": ["<leader>", "q"],
+            "commands": [":wq"]
+        },
+        {
+            "before": ["z", "l"],
+            "after": ["z","L"]
+        },
+        {
+            "before": ["z", "h"],
+            "after": ["z","H"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": ["<leader>", ";"],
+            "after": ["g","c"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
+        {
+            "before": ["H"],
+            "after": ["g","T"]
+        },
+        {
+            "before": ["L"],
+            "after": ["g","t"]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive":[
+        {
+            "before": ["<"],
+            "after": ["<", "g", "v"]
+        },
+        {
+            "before": [">"],
+            "after": [">", "g", "v"]
+        }
+    ],
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.useSystemClipboard": true,
+    "workbench.colorTheme": "One Dark Pro",
+    "terminal.integrated.fontSize": 16,
+    "editor.fontSize": 16,
+    "debug.console.fontSize": 16,
+    "markdown.preview.fontSize": 16,
+    "vim.easymotionMarkerFontSize": "16",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
+    "breadcrumbs.enabled": true
+}
