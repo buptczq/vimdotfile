@@ -25,8 +25,10 @@ inoremap jk <Esc>
 noremap J :action EditorJoinLines<CR>
 
 " Windows
-map <S-H> gT
-map <S-L> gt
+map H gT
+map L gt
+imap <C-K> <C-P>
+imap <C-J> <C-N>
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-H> <C-W>h
