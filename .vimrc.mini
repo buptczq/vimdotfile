@@ -375,8 +375,8 @@ map <leader>pp :setlocal paste!<cr>
 
 " NERDTree
 let g:NERDShutUp=1
-map <leader>ft :NERDTree<CR>
-map <leader>fT :NERDTreeFind<CR>
+map <leader>fT :NERDTree<CR>
+map <leader>ft :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
