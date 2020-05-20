@@ -20,6 +20,13 @@ Plug 'vim-scripts/visualstar.vim'
 Plug 'vim-scripts/auto-pairs-gentle'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-scripts/AutoComplPop'
+Plug 'vim-scripts/a.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'mhinz/vim-startify'
+if executable('ctags')
+    Plug 'vim-scripts/taglist.vim'
+endif
+
 
 call plug#end()
 
@@ -248,7 +255,7 @@ nnoremap <silent> <Leader><Tab> :e#<CR>
 nnoremap <silent> <Leader>fs :w<CR>
 nnoremap <silent> <Leader>fS :wa<CR>
 nnoremap <silent> <Leader>w :w<CR>
-nnoremap <silent> <Leader>q :wq<CR>
+nnoremap <silent> <Leader>q :q<CR>
 
 " Windows
 nnoremap <Leader>wj <C-W>j<C-W>_
@@ -397,6 +404,24 @@ let g:NERDCustomDelimiters = {'c': { 'left': '//', 'leftAlt': '/*', 'rightAlt': 
 map <Leader>; <Plug>NERDCommenterToggle
 map <Leader>cl <Plug>NERDCommenterComment
 map <Leader>cL <Plug>NERDCommenterInvert
+
+" a.vim
+map <Leader>a :A<CR>
+map <Leader>v :AV<CR>
+
+" ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+nmap <Leader>ff <C-p>
+
+" taglist
+let Tlist_Show_One_File=1
+let Tlist_Use_Right_window=1
+nnoremap <Leader>d :vert winc ]<CR>
+nnoremap <silent> <Leader>tt :TlistOpen<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
