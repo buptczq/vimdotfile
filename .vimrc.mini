@@ -20,19 +20,44 @@ Plug 'vim-scripts/visualstar.vim'
 Plug 'vim-scripts/auto-pairs-gentle'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-scripts/AutoComplPop'
-Plug 'vim-scripts/a.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'ton/vim-alternate'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-startify'
 if executable('ctags')
     Plug 'vim-scripts/taglist.vim'
 endif
-
 
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" InitializeDirectories
+function! InitializeDirectories()
+    let parent = $HOME
+    let prefix = 'vim'
+    let dir_list = {
+                \ 'views': 'viewdir',
+                \ 'undo': 'undodir' }
+    let common_dir = parent . '/.' . prefix
+    for [dirname, settingname] in items(dir_list)
+        let directory = common_dir . dirname . '/'
+        if exists("*mkdir")
+            if !isdirectory(directory)
+                call mkdir(directory)
+            endif
+        endif
+        if !isdirectory(directory)
+            echo "Warning: Unable to create backup directory: " . directory
+            echo "Try: mkdir -p " . directory
+        else
+            let directory = substitute(directory, " ", "\\\\ ", "g")
+            exec "set " . settingname . "=" . directory
+        endif
+    endfor
+endfunction
+call InitializeDirectories()
 
 " Sets how many lines of history VIM has to remember
 set history=500
@@ -69,6 +94,9 @@ vnoremap . :normal .<CR>
 
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
+
+" Always switch to the current file directory
+autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -189,8 +217,12 @@ set ffs=unix,dos,mac
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
-set nowb
 set noswapfile
+
+" persistent undo
+set undofile
+set undolevels=1000
+set undoreload=10000
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -405,9 +437,8 @@ map <Leader>; <Plug>NERDCommenterToggle
 map <Leader>cl <Plug>NERDCommenterComment
 map <Leader>cL <Plug>NERDCommenterInvert
 
-" a.vim
-map <Leader>a :A<CR>
-map <Leader>v :AV<CR>
+" Alternate
+map <Leader>a :Alternate<CR>
 
 " ctrlp.vim
 let g:ctrlp_map = '<c-p>'
