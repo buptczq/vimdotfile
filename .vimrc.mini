@@ -25,6 +25,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-startify'
 if executable('ctags')
     Plug 'vim-scripts/taglist.vim'
+    Plug 'ludovicchabant/vim-gutentags'
 endif
 
 call plug#end()
