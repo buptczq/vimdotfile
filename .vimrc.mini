@@ -333,6 +333,7 @@ set completeopt=menuone
 inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+let g:acp_completeOption = '.,w,b,t,k,u'
 
 """"""""""""""""""""""""""""""
 " => Status line
