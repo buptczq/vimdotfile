@@ -66,6 +66,22 @@
         {
             "before": ["L"],
             "after": ["g","t"]
+        },
+        {
+            "before": ["<leader>", "f", "f"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        {
+            "before": ["<leader>", "d"],
+            "commands": ["editor.action.goToDeclaration"]
+        },
+        {
+            "before": ["<leader>", "s", "s"],
+            "commands": ["workbench.action.findInFiles"]
+        },
+        {
+            "before": ["<leader>", "f", "s"],
+            "commands": ["workbench.action.gotoSymbol"]
         }
     ],
     "vim.visualModeKeyBindingsNonRecursive":[
@@ -88,5 +104,6 @@
     "markdown.preview.fontSize": 16,
     "vim.easymotionMarkerFontSize": "16",
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
+    "editor.links": false,
     "breadcrumbs.enabled": true
 }
