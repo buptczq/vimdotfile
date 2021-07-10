@@ -72,6 +72,10 @@
             "commands": ["workbench.action.quickOpen"]
         },
         {
+            "before": ["<leader>", "f", "t"],
+            "commands": ["workbench.view.explorer"]
+        },
+        {
             "before": ["<leader>", "d"],
             "commands": ["editor.action.goToDeclaration"]
         },
