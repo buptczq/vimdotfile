@@ -90,6 +90,22 @@
         {
             "before": ["<leader>", "l", "i"],
             "commands": ["editor.action.rename"]
+        },
+        {
+            "before": ["<leader>", "m", "m"],
+            "commands": ["bookmarks.toggle"]
+        },
+        {
+            "before": ["<leader>", "m", "l"],
+            "commands": ["bookmarks.list"]
+        },
+        {
+            "before": ["<leader>", "m", "n"],
+            "commands": ["bookmarks.jumpToNext"]
+        },
+        {
+            "before": ["<leader>", "m", "p"],
+            "commands": ["bookmarks.jumpToPrevious"]
         }
     ],
     "vim.visualModeKeyBindingsNonRecursive":[
