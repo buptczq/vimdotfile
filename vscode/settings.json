@@ -106,6 +106,15 @@
         {
             "before": ["<leader>", "m", "p"],
             "commands": ["bookmarks.jumpToPrevious"]
+        },
+        {
+            "before": ["=", "="],
+            "commands": [
+                {
+                    "command": "editor.action.reindentlines",
+                    "args": []
+                }
+            ]
         }
     ],
     "vim.visualModeKeyBindingsNonRecursive":[
@@ -118,10 +127,14 @@
             "after": [">", "g", "v"]
         },
         {
-            "before": [ "=" ],
+            "before": ["="],
             "commands": [
                 {
-                    "command": "editor.action.reindentselectedlines",
+                    "command": "editor.action.reindentlines",
+                    "args": []
+                },
+                {
+                    "command": "extension.vim_escape",
                     "args": []
                 }
             ]
@@ -136,7 +149,6 @@
     "debug.console.fontSize": 16,
     "markdown.preview.fontSize": 16,
     "vim.easymotionMarkerFontSize": "16",
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
     "editor.links": false,
     "breadcrumbs.enabled": true
 }
