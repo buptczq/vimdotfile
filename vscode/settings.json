@@ -150,5 +150,6 @@
     "markdown.preview.fontSize": 16,
     "vim.easymotionMarkerFontSize": "16",
     "editor.links": false,
+    "explorer.autoReveal": "focusNoScroll",
     "breadcrumbs.enabled": true
 }
