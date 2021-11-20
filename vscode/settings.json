@@ -115,7 +115,7 @@
                     "args": []
                 }
             ]
-        }
+        },
     ],
     "vim.visualModeKeyBindingsNonRecursive":[
         {
@@ -138,7 +138,7 @@
                     "args": []
                 }
             ]
-        }
+        },
     ],
     "vim.hlsearch": true,
     "vim.leader": "<space>",
@@ -148,8 +148,46 @@
     "editor.fontSize": 16,
     "debug.console.fontSize": 16,
     "markdown.preview.fontSize": 16,
-    "vim.easymotionMarkerFontSize": "16",
+    "breadcrumbs.enabled": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "go.useLanguageServer": true,
+    "tabnine.experimentalAutoImports": true,
+    "python.languageServer": "Pylance",
+    "git.ignoreLegacyWarning": true,
+    "go.gotoSymbol.includeImports": true,
+    "go.gotoSymbol.includeGoroot": true,
+    "go.inferGopath": true,
+    "go.autocompleteUnimportedPackages": true,
+    "go.generateTestsFlags": [
+        "-v"
+    ],
+    "go.lintTool": "golangci-lint",
     "editor.links": false,
+    "settingsSync.ignoredExtensions": [
+        "yzane.markdown-pdf"
+    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "python.showStartPage": false,
+    "redhat.telemetry.enabled": true,
     "explorer.autoReveal": "focusNoScroll",
-    "breadcrumbs.enabled": true
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredDarkColorTheme": "One Dark Pro",
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "go.toolsManagement.autoUpdate": true,
+    "go.toolsEnvVars":{
+        "GOOS":"linux",
+    },
+    "files.autoSave": "afterDelay",
 }
