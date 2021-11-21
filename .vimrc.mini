@@ -23,6 +23,7 @@ Plug 'vim-scripts/AutoComplPop'
 Plug 'ton/vim-alternate'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-startify'
+Plug 'WeiChungWu/vim-SystemVerilog'
 if executable('ctags')
     Plug 'vim-scripts/taglist.vim'
     Plug 'ludovicchabant/vim-gutentags'
