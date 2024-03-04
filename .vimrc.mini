@@ -22,7 +22,6 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/visualstar.vim'
 Plug 'vim-scripts/auto-pairs-gentle'
 Plug 'scrooloose/nerdcommenter'
-Plug 'vim-scripts/AutoComplPop'
 Plug 'ton/vim-alternate'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-startify'
@@ -39,6 +38,7 @@ endif
 if executable('ctags') && g_vim_mini_ac_type == 'none'
     let g_vim_mini_ac_type = 'ctags'
     Plug 'vim-scripts/taglist.vim'
+    Plug 'vim-scripts/AutoComplPop'
     Plug 'ludovicchabant/vim-gutentags'
 endif
 
@@ -344,13 +344,16 @@ augroup resCur
 augroup END
 
 " Completion
-set completeopt=menuone
+if g_vim_mini_ac_type == 'ctags'
+    set completeopt=menuone
+    let g:acp_completeOption = '.,w,b,t,k,u'
+endif
+
 inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-x><c-i>"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-x><c-o>"))
-let g:acp_completeOption = '.,w,b,t,k,u'
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -479,7 +482,7 @@ endif
 " lsp
 if g_vim_mini_ac_type == 'lsp'
     nnoremap <Leader>d :vsp<cr>:LspDefinition<CR>
-    let g:lsp_diagnostics_enabled = 0
+    let g:lsp_diagnostics_enabled = 1
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
