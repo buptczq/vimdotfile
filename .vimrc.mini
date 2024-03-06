@@ -27,19 +27,15 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-startify'
 Plug 'WeiChungWu/vim-SystemVerilog'
 
-if executable('clangd') && g_vim_mini_ac_type == 'none' && (v:version >= 800)
-    let g_vim_mini_ac_type = 'lsp'
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'mattn/vim-lsp-settings'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
-endif
-
 if executable('ctags') && g_vim_mini_ac_type == 'none'
     let g_vim_mini_ac_type = 'ctags'
     Plug 'vim-scripts/taglist.vim'
     Plug 'vim-scripts/AutoComplPop'
+endif
+
+if g_vim_mini_ac_type == 'ctags' && (v:version >= 800)
     Plug 'ludovicchabant/vim-gutentags'
+    let g:gutentags_project_root = ['.editorconfig', '.clang-format', '.vscode']
 endif
 
 call plug#end()
@@ -477,12 +473,6 @@ if g_vim_mini_ac_type == 'ctags'
     nnoremap <Leader>d :vert winc ]<CR>
     nnoremap <silent> <Leader>tt :TlistOpen<CR>
     set tags=tags;
-endif
-
-" lsp
-if g_vim_mini_ac_type == 'lsp'
-    nnoremap <Leader>d :vsp<cr>:LspDefinition<CR>
-    let g:lsp_diagnostics_enabled = 1
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
