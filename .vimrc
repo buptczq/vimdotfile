@@ -1,5 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Minimal VIM Configuration
+" VIM Configuration
 " BUPTCZQ
 " Version 24.03
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -12,8 +12,6 @@ set nocompatible
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-let g_vim_mini_ac_type = 'none'
-
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -21,26 +19,19 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/visualstar.vim'
 Plug 'vim-scripts/auto-pairs-gentle'
+Plug 'vim-scripts/bufexplorer.zip'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ton/vim-alternate'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-startify'
 Plug 'WeiChungWu/vim-SystemVerilog'
+Plug 'mileszs/ack.vim'
+Plug 'maxbrunsfeld/vim-yankstack'
 
-if executable('clangd') && g_vim_mini_ac_type == 'none' && (v:version >= 800)
-    let g_vim_mini_ac_type = 'lsp'
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'mattn/vim-lsp-settings'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
-endif
-
-if executable('ctags') && g_vim_mini_ac_type == 'none'
-    let g_vim_mini_ac_type = 'ctags'
-    Plug 'vim-scripts/taglist.vim'
-    Plug 'vim-scripts/AutoComplPop'
-    Plug 'ludovicchabant/vim-gutentags'
-endif
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 call plug#end()
 
@@ -344,11 +335,6 @@ augroup resCur
 augroup END
 
 " Completion
-if g_vim_mini_ac_type == 'ctags'
-    set completeopt=menuone
-    let g:acp_completeOption = '.,w,b,t,k,u'
-endif
-
 inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -470,20 +456,25 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 nmap <Leader>ff <C-p>
 
-" taglist
-if g_vim_mini_ac_type == 'ctags'
-    let Tlist_Show_One_File=1
-    let Tlist_Use_Right_window=1
-    nnoremap <Leader>d :vert winc ]<CR>
-    nnoremap <silent> <Leader>tt :TlistOpen<CR>
-    set tags=tags;
-endif
-
 " lsp
-if g_vim_mini_ac_type == 'lsp'
-    nnoremap <Leader>d :vsp<cr>:LspDefinition<CR>
-    let g:lsp_diagnostics_enabled = 1
-endif
+nnoremap <Leader>d :vsp<cr>:LspDefinition<CR>
+let g:lsp_diagnostics_enabled = 1
+
+" ack
+cnoreabbrev Ack Ack!
+nnoremap <Leader>ss :Ack!<Space>
+
+" buffer explorer
+nnoremap <Leader>be :BufExplorerHorizontalSplit<CR>
+nnoremap <Leader>bt :BufExplorerHorizontalSplit<CR>
+let g:bufExplorerDisableDefaultKeyMapping=1
+let g:bufExplorerSplitHorzSize=10
+let g:bufExplorerSplitBelow=1
+
+" yankstack
+let g:yankstack_map_keys = 0
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
