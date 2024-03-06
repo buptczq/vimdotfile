@@ -345,6 +345,7 @@ if g_vim_mini_ac_type == 'ctags'
     let g:acp_completeOption = '.,w,b,t,k,u'
 endif
 
+set pumheight=15
 inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
