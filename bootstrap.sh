@@ -14,9 +14,6 @@
 
 ############################  SETUP PARAMETERS
 app_name='czq-vim'
-[ -z "$APP_PATH" ] && APP_PATH="$HOME/.czq-vim"
-[ -z "$REPO_URI" ] && REPO_URI='https://github.com/buptczq/vimdotfile.git'
-[ -z "$REPO_BRANCH" ] && REPO_BRANCH='master'
 debug_mode='0'
 fork_maintainer='0'
 
@@ -79,43 +76,12 @@ lnif() {
 
 ############################ SETUP FUNCTIONS
 
-sync_repo() {
-    local repo_path="$1"
-    local repo_uri="$2"
-    local repo_branch="$3"
-    local repo_name="$4"
-
-    msg "Trying to update $repo_name"
-
-    if [ ! -e "$repo_path" ]; then
-        mkdir -p "$repo_path"
-        git clone -b "$repo_branch" "$repo_uri" "$repo_path"
-        ret="$?"
-        success "Successfully cloned $repo_name."
-    else
-        cd "$repo_path" && git pull origin "$repo_branch"
-        ret="$?"
-        success "Successfully updated $repo_name"
-    fi
-
-    debug
-}
-
-create_symlinks() {
-    local source_path="$1"
-    local target_path="$2"
-
-    lnif "$source_path/.vimrc"         "$target_path/.vimrc"
-    lnif "$source_path/.vimrc.local"         "$target_path/.vimrc.local"
-    lnif "$source_path/.vimrc.bundles" "$target_path/.vimrc.bundles"
-    lnif "$source_path/.vimrc.before"  "$target_path/.vimrc.before"
-    lnif "$source_path/.vimrc.local"         "$target_path/.vimrc.local"
-    lnif "$source_path/.vimrc.bundles.default" "$target_path/.vimrc.bundles.default"
-    lnif "$source_path/.vimrc.bundles.local" "$target_path/.vimrc.bundles.local"
-    lnif "$source_path/.vimrc.before.local"  "$target_path/.vimrc.before.local"
+setup_vimrc() {
+    curl -fLo ~/.vimrc \
+        https://github.com/buptczq/vimdotfile/raw/master/.vimrc
 
     ret="$?"
-    success "Setting up vim symlinks."
+    success "Downloaded vimrc"
     debug
 }
 
@@ -138,16 +104,8 @@ setup_plug() {
 ############################ MAIN()
 variable_set "$HOME"
 program_must_exist "vim"
-program_must_exist "git"
 
-sync_repo       "$APP_PATH" \
-                "$REPO_URI" \
-                "$REPO_BRANCH" \
-                "$app_name"
-
-create_symlinks "$APP_PATH" \
-                "$HOME"
-
+setup_vimrc
 setup_plug
 
 msg             "\nThanks for installing $app_name."
