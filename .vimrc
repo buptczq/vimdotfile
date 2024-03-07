@@ -36,6 +36,9 @@ Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'prabirshrestha/asyncomplete-tags.vim'
 
+Plug 'vim-scripts/taglist.vim'
+Plug 'ludovicchabant/vim-gutentags'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -511,6 +514,14 @@ function! s:fix_buffer_complete() abort
     call l:info.on_event(l:info, {}, 'BufWinEnter')
 endfunction
 autocmd User asyncomplete_setup call s:fix_buffer_complete()
+
+" taglist
+let g:gutentags_project_root = ['.editorconfig', '.clang-format', '.vscode']
+let Tlist_Show_One_File=1
+let Tlist_Use_Right_window=1
+nnoremap <Leader>gt :vert winc ]<CR>
+nnoremap <silent> <Leader>tt :TlistOpen<CR>
+set tags=tags;
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
