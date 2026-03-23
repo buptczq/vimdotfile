@@ -20,7 +20,13 @@ cursor-color = #839496
 cursor-text = #073642
 selection-background = #073642
 selection-foreground = #93a1a1
+
 font-size=14
+font-thicken=true
+font-thicken-strength=1
+adjust-cell-height=1
+
 background-opacity=0.9
 background-blur=true
 shell-integration-features=ssh-env
+
